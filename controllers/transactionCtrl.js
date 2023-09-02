@@ -29,6 +29,7 @@ const getAlltransaction = async (req, res) => {
 const deletetransaction = async (req, res) => {
   try {
     await transactionModel.findOneAndDelete({ _id: req.body.transacationId });
+    window.location.reload();
     res.status(200).send("Transaction Deleted!");
   } catch (error) {
     console.log(error);
@@ -41,6 +42,7 @@ const edittransaction = async (req, res) => {
       { _id: req.body.transacationId },
       req.body.payload
     );
+    window.location.reload();
     res.status(200).send("Edit SUccessfully");
   } catch (error) {
     console.log(error);
