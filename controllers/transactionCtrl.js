@@ -30,6 +30,7 @@ const deletetransaction = async (req, res) => {
   try {
     await transactionModel.findOneAndDelete({ _id: req.body.transacationId });
     res.status(200).send("Transaction Deleted!");
+    window.location.reload();
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
